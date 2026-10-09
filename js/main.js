@@ -1,4 +1,4 @@
-// NItsayra Craft - data & cart logic
+// Nitsayra Craft - data & cart logic
 const PRODUCTS = [
   {id:'p1', name:'Gelang Manik Daisy Pastel', cat:'Gelang', price:35000, old:45000, rating:'4.9 (212)', tag:'Best Seller', img:'https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80&auto=format&fit=crop', desc:'Gelang manik bunga daisy handmade, tali elastis kuat.'},
   {id:'p2', name:'Kalung Mutiara Korean Style', cat:'Kalung', price:55000, old:75000, rating:'4.8 (168)', tag:'Best Seller', img:'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80&auto=format&fit=crop', desc:'Kalung mutiara sintetis + rantai gold anti karat.'},
@@ -140,7 +140,7 @@ function checkoutWA(){
   if(!c.length) return toast('Keranjang kosong');
   const nama = document.getElementById('namaPenerima')?.value||'-';
   const alamat = document.getElementById('alamatPenerima')?.value||'-';
-  let pesan = `Halo NItsayra Craft! Saya mau order:%0A%0A`;
+  let pesan = `Halo Nitsayra Craft! Saya mau order:%0A%0A`;
   c.forEach((i,n)=>{ const p=PRODUCTS.find(x=>x.id===i.id); pesan += `${n+1}. ${p.name} x${i.qty} - ${rupiah(p.price*i.qty)}%0A`; });
   const sub = c.reduce((a,i)=>a+PRODUCTS.find(x=>x.id===i.id).price*i.qty,0);
   pesan += `%0ATotal: ${rupiah(sub)}%0ANama: ${nama}%0AAlamat: ${alamat}`;
