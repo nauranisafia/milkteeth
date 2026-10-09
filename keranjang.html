@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keranjang Belanja — NItsayra Craft</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧶</text></svg>">
+</head>
+<body>
+<div class="topbar">✨ Gratis ongkir min. belanja Rp100.000 ✨</div>
+<header><div class="container nav">
+  <a href="index.html" class="logo"><span class="logo-mark">🌸</span><span>N Itsayra<small>CRAFT • HANDMADE</small></span></a>
+  <nav class="nav-links" id="navLinks"><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="katalog.html">Katalog Produk</a><a href="kontak.html">Hubungi Kami</a></nav>
+  <div class="nav-actions"><a href="keranjang.html" class="cart-btn" style="border-color:var(--terra)">🛒 <span class="cart-count">0</span></a><button class="hamburger" id="hamburger">☰</button></div>
+</div></header>
+<div class="page-hero"><div class="container"><div class="kicker">Keranjang Belanja</div><h1>Pesananmu 🛒</h1><p>Cek lagi itemnya, isi data penerima, lalu checkout via WhatsApp — gampang!</p></div></div>
+
+<section class="container">
+  <div class="cart-layout">
+    <div>
+      <div id="cartItems"></div>
+      <div class="form-card" style="margin-top:.4rem">
+        <h3>📦 Data penerima</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem">
+          <div><label>Nama penerima</label><input id="namaPenerima" placeholder="Nama lengkap"></div>
+          <div><label>No. HP</label><input placeholder="0812xxxx"></div>
+        </div>
+        <label>Alamat lengkap</label><textarea id="alamatPenerima" rows="2" placeholder="Jalan, no rumah, kecamatan, kota, kode pos"></textarea>
+        <label>Catatan (opsional)</label><input placeholder="cth: bungkus kado + kartu ucapan 'Happy Birthday!'">
+      </div>
+    </div>
+    <div class="summary" id="cartSummary">
+      <h3>Ringkasan belanja</h3>
+      <div id="summaryBody"></div>
+      <p style="font-size:.82rem;color:#8A7368;margin-top:.8rem">🔒 Pembayaran aman via transfer / QRIS / COD (konfirmasi via WhatsApp setelah checkout).</p>
+    </div>
+  </div>
+  <div style="margin-top:1.5rem"><div class="section-head"><div><h2 style="font-size:1.4rem">Lengkapi koleksimu ✨</h2></div><a href="katalog.html">Lihat semua →</a></div>
+  <div class="product-grid" id="suggestGrid"></div></div>
+</section>
+
+<footer><div class="container foot-grid">
+  <div><a href="index.html" class="logo" style="color:#fff"><span class="logo-mark">🌸</span><span>N Itsayra<small style="color:#E9A87A">CRAFT • HANDMADE</small></span></a><p style="font-size:.9rem;margin-top:.8rem;max-width:300px">Aksesori handmade lokal yang dibuat dengan cinta sejak 2021.</p></div>
+  <div><h4>Navigasi</h4><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="katalog.html">Katalog Produk</a><a href="kontak.html">Hubungi Kami</a><a href="keranjang.html">Keranjang Belanja</a></div>
+  <div><h4>Bantuan</h4><a href="kontak.html">Lacak Pesanan</a><a href="kontak.html">Retur & Garansi</a></div>
+  <div><h4>Ikuti Kami</h4><a href="#">📸 Instagram</a><a href="#">🎵 TikTok</a><a href="#">🛍️ Shopee</a></div>
+</div><div class="container foot-bottom"><span>© <span id="year">2026</span> NItsayra Craft.</span><span>Dibuat dengan 💖 di Indonesia</span></div></footer>
+<script src="js/main.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{ renderGrid('suggestGrid', PRODUCTS.slice(4,8)); });</script>
+</body></html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katalog Produk — NItsayra Craft</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧶</text></svg>">
+</head>
+<body>
+<div class="topbar">✨ Semua produk ready stock & bisa custom warna ✨</div>
+<header><div class="container nav">
+  <a href="index.html" class="logo"><span class="logo-mark">🌸</span><span>N Itsayra<small>CRAFT • HANDMADE</small></span></a>
+  <nav class="nav-links" id="navLinks"><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="katalog.html" class="active">Katalog Produk</a><a href="kontak.html">Hubungi Kami</a></nav>
+  <div class="nav-actions"><a href="keranjang.html" class="cart-btn">🛒 <span class="cart-count">0</span></a><button class="hamburger" id="hamburger">☰</button></div>
+</div></header>
+<div class="page-hero"><div class="container"><div class="kicker">Katalog Produk</div><h1>Pilih favoritmu 🛍️</h1><p>12+ koleksi handmade terlaris. Klik “+ Keranjang” untuk memesan, lalu checkout via WhatsApp.</p></div></div>
+
+<section class="container">
+  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:1rem">
+    <input id="searchInput" placeholder="🔍 Cari gelang, kalung, rajut..." style="flex:1;min-width:220px">
+    <select id="sortSelect" style="max-width:220px" onchange="sortProducts(this.value)">
+      <option value="">Urutkan: Populer</option><option value="murah">Termurah</option><option value="mahal">Termahal</option>
+    </select>
+  </div>
+  <div class="filter-bar">
+    <button class="chip active" data-filter="Semua">Semua</button>
+    <button class="chip" data-filter="Gelang">Gelang</button>
+    <button class="chip" data-filter="Kalung">Kalung</button>
+    <button class="chip" data-filter="Anting">Anting</button>
+    <button class="chip" data-filter="Cincin">Cincin</button>
+    <button class="chip" data-filter="Aksesoris Rambut">Aksesoris Rambut</button>
+    <button class="chip" data-filter="Rajut">Rajut</button>
+  </div>
+  <p id="resultCount" style="color:#8A7368;font-size:.9rem;margin-bottom:.8rem">12 produk ditemukan</p>
+  <div class="product-grid" id="katalogGrid"></div>
+  <div class="cta" style="margin-top:2.5rem"><div><h2>Nggak nemu yang cocok? Bisa custom! ✨</h2><p>Kirim referensi warna / model ke WhatsApp, kami buatkan khusus untukmu (2–4 hari pengerjaan).</p><br><a class="btn btn-light" href="https://wa.me/6281234567890?text=Halo%20N Itsayra%20Craft!%20Saya%20mau%20custom..." target="_blank">Chat Custom 💬</a></div>
+  <img src="https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=600&q=80&auto=format&fit=crop" alt="Custom" style="border-radius:18px;aspect-ratio:4/3;object-fit:cover" onerror="this.src='https://picsum.photos/seed/custom/600/450'"></div>
+</section>
+
+<footer><div class="container foot-grid">
+  <div><a href="index.html" class="logo" style="color:#fff"><span class="logo-mark">🌸</span><span>N Itsayra<small style="color:#E9A87A">CRAFT • HANDMADE</small></span></a><p style="font-size:.9rem;margin-top:.8rem;max-width:300px">Aksesori handmade lokal yang dibuat dengan cinta sejak 2021.</p></div>
+  <div><h4>Navigasi</h4><a href="index.html">Beranda</a><a href="tentang.html">Tentang Kami</a><a href="katalog.html">Katalog Produk</a><a href="kontak.html">Hubungi Kami</a><a href="keranjang.html">Keranjang Belanja</a></div>
+  <div><h4>Bantuan</h4><a href="kontak.html">Lacak Pesanan</a><a href="kontak.html">Retur & Garansi</a></div>
+  <div><h4>Ikuti Kami</h4><a href="#">📸 Instagram</a><a href="#">🎵 TikTok</a><a href="#">🛍️ Shopee</a></div>
+</div><div class="container foot-bottom"><span>© <span id="year">2026</span> NItsayra Craft.</span><span>Dibuat dengan 💖 di Indonesia</span></div></footer>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{ renderGrid('katalogGrid', PRODUCTS); });
+function sortProducts(v){
+  let list=[...PRODUCTS];
+  const active=document.querySelector('.chip.active')?.dataset.filter||'Semua';
+  if(active!=='Semua') list=list.filter(p=>p.cat===active);
+  if(v==='murah') list.sort((a,b)=>a.price-b.price);
+  if(v==='mahal') list.sort((a,b)=>b.price-a.price);
+  renderGrid('katalogGrid',list);
+}
+</script>
+</body></html>
